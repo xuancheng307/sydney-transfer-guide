@@ -624,13 +624,12 @@ footer p {
         flex-direction: column;
         gap: 2px;
         align-items: stretch;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
+        display: none;
+        margin: 0;
     }
 
     #toc ul.open {
-        max-height: 600px;
+        display: flex;
     }
 
     #toc a {
