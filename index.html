@@ -20,6 +20,7 @@
 
     <nav id="toc">
         <div class="container">
+            <button class="toc-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">目錄導覽</button>
             <ul>
                 <li><a href="#tldr"><span class="toc-num">1</span>結論摘要</a></li>
                 <li><a href="#strategy"><span class="toc-num">2</span>策略分析</a></li>
@@ -986,5 +987,17 @@
             <p>實際規定以各校當年公布之簡章及教育部最新法規為準。建議在做任何決定前，直接聯繫目標學校教務處確認。</p>
         </div>
     </footer>
+    <script>
+    document.querySelectorAll('#toc a').forEach(function(a) {
+        a.addEventListener('click', function() {
+            var ul = document.querySelector('#toc ul');
+            var btn = document.querySelector('.toc-toggle');
+            if (ul.classList.contains('open')) {
+                ul.classList.remove('open');
+                btn.classList.remove('open');
+            }
+        });
+    });
+    </script>
 </body>
 </html>

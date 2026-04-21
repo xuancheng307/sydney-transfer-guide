@@ -561,51 +561,193 @@ footer p {
     margin-bottom: 8px;
 }
 
+/* ─── TOC toggle (mobile) ─── */
+.toc-toggle {
+    display: none;
+}
+
+/* ─── Table scroll wrapper ─── */
+.table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
+    header {
+        padding: 36px 0 28px;
+    }
+
     header h1 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
 
     header .subtitle {
-        font-size: 0.95rem;
+        font-size: 0.88rem;
+    }
+
+    header .update-date {
+        margin-top: 8px;
+    }
+
+    /* ─── Collapsible TOC ─── */
+    .toc-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background: none;
+        border: none;
+        font-family: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text);
+        padding: 4px 0;
+        cursor: pointer;
+    }
+
+    .toc-toggle::after {
+        content: '▼';
+        font-size: 0.7rem;
+        transition: transform 0.2s;
+    }
+
+    .toc-toggle.open::after {
+        transform: rotate(180deg);
+    }
+
+    #toc {
+        padding: 10px 0;
     }
 
     #toc ul {
         flex-direction: column;
-        gap: 4px;
+        gap: 2px;
         align-items: stretch;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    #toc ul.open {
+        max-height: 600px;
     }
 
     #toc a {
         justify-content: flex-start;
+        padding: 5px 10px;
+        font-size: 0.82rem;
     }
 
+    .toc-num {
+        width: 18px;
+        height: 18px;
+        font-size: 0.65rem;
+    }
+
+    /* ─── Typography ─── */
     h2 {
-        font-size: 1.35rem;
+        font-size: 1.3rem;
+        margin-bottom: 16px;
+        padding-bottom: 8px;
     }
 
-    .path-compare {
-        grid-template-columns: 1fr;
+    h3 {
+        font-size: 1.05rem;
+        margin: 20px 0 10px;
     }
 
-    .school-cards {
-        grid-template-columns: 1fr;
+    /* ─── Layout ─── */
+    main {
+        padding: 28px 16px;
     }
 
-    table {
-        font-size: 0.78rem;
-    }
-
-    th, td {
-        padding: 8px 6px;
+    section {
+        margin-bottom: 40px;
     }
 
     .container {
         padding: 0 16px;
     }
 
+    .path-compare {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .school-cards {
+        grid-template-columns: 1fr;
+    }
+
+    /* ─── Cards ─── */
+    .card {
+        padding: 14px 16px;
+        margin: 12px 0;
+    }
+
+    .path-detail {
+        padding: 6px 14px 14px;
+    }
+
+    .path-card h3 {
+        padding: 12px 14px 0;
+        font-size: 1rem;
+    }
+
+    /* ─── Tables ─── */
+    table {
+        font-size: 0.75rem;
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+    }
+
+    thead, tbody, tr, th, td {
+        white-space: normal;
+    }
+
+    table {
+        min-width: 480px;
+    }
+
+    th, td {
+        padding: 8px 6px;
+    }
+
+    /* ─── Timeline ─── */
+    .timeline {
+        padding-left: 28px;
+    }
+
+    .timeline-item::before {
+        left: -23px;
+        width: 12px;
+        height: 12px;
+    }
+
+    /* ─── Checklist ─── */
     .checklist {
-        padding: 20px 16px;
+        padding: 16px 14px;
+    }
+
+    .checklist label {
+        font-size: 0.85rem;
+        padding: 8px 0;
+    }
+
+    /* ─── Lists ─── */
+    ul, ol {
+        margin-left: 18px;
+    }
+
+    li {
+        margin-bottom: 4px;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+        padding: 24px 0;
+        font-size: 0.78rem;
     }
 }
